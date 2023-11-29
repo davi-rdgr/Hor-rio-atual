@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="section">
+        <div class="engloba">
+            <h1 class="h1horas" id="h1horas">Hora do Dia</h1>
+            <div class="engloba2">
+                <p class="p-horas" id="phoras"> Que horas são? </p>
+                <p class="saohoras" id="saohoras"></p>
+                <img id="foto" src="" alt="">
+                <span id="span"></span>
+                <span id="span1"></span>
+                <div id="posts-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function atualizarHorario() {
+            var phoras = document.getElementById('phoras');
+            var foto = document.getElementById('foto');
+            var sao = document.getElementById('saohoras');
+            var back = document.body;
+
+            var agora = new Date();
+            var hora = agora.getHours();
+            var minutes = agora.getMinutes();
+            var seg = agora.getSeconds();
+
+            phoras.innerText = `Agora são ${hora}:${minutes}:${seg}`;
+
+            if (hora < 6) {
+                sao.innerText = 'Está de madrugada';
+                foto.setAttribute("src", 'noite-na-floresta_1308-69877.avif');
+                back.style.background = '#061034';
+            } else if (hora < 12) {
+                sao.innerText = 'Está de manhã';
+                foto.setAttribute("src", 'thinkstockphotos-466262074.webp');
+                back.style.background = '#F2C378';
+            } else if (hora <= 18) {
+                sao.innerText = 'Está de tarde';
+                foto.setAttribute("src", 'malu_pires-2023-03-09T125512.852-1200x600.jpg');
+                back.style.background = '#FF9600';
+            } else {
+                sao.innerText = 'Está de noite';
+                foto.setAttribute("src", 'noite-na-floresta_1308-69877.avif');
+                back.style.background = '#061034';
+            }
+        }
+
+        setInterval(atualizarHorario, 1000);
+
+        atualizarHorario();
+    </script>
+</body>
+</html>
