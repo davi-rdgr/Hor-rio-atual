@@ -1,33 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     width: 100vw;
     text-align: center;
     font-family: sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.h1horas {
-    color: white;
-    font-size: 34px;
+
+.shadow {
+    background-color: rgba(0, 0, 0, 0.6);
 }
-.p-horas {
-    font-size: 25px;
-    padding-top: 10px;
+
+.sectionContent {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.saohoras {
+    font-size: 2.125rem;
+    margin-bottom: 1.875rem;
+}
+
+.agoraSao {
+    font-size: 1.875rem;
+    font-weight: 600;
+}
+
+.phoras {
+    font-size: 3.125rem;
     font-weight: 700;
 }
-.saohoras {
-    font-size: 15px;
+
+.doDia {
+    font-size: 1.875rem;
     font-weight: 600;
-    text-transform: uppercase;
 }
+
+.saoData {
+    font-size: 1.875rem;
+    font-weight: 600;
+}
+
 .engloba2 {
-    background-color: white;
-    width: 650px;
-    height: 400px;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.8rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.8px);
+    -webkit-backdrop-filter: blur(5.8px);
+    width: 600px;
+    height: 21.875rem;
 }
+
 img {
-    height: 270px;
-    border-radius: 10px;
+    height: 16.875rem;
+    border-radius: 0.625rem;
+}
+
+@media (max-width: 630px) {
+    html {
+        font-size: 14px;
+    }
+
+    .engloba2 {
+        width: 100%;
+        padding: 4rem;
+    }
 }
