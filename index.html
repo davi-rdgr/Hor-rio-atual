@@ -1,62 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <section id="section">
-        <div class="engloba">
-            <h1 class="h1horas" id="h1horas">Hora do Dia</h1>
-            <div class="engloba2">
-                <p class="p-horas" id="phoras"> Que horas são? </p>
-                <p class="saohoras" id="saohoras"></p>
-                <img id="foto" src="" alt="">
-                <span id="span"></span>
-                <span id="span1"></span>
-                <div id="posts-container"></div>
+    <div class="shadow">
+        <section class="sectionContent">
+            <div class="engloba">
+                <h1 class="saohoras"></h1>
+                <div class="engloba2">
+                    <p class="agoraSao">Agora são:</p>
+                    <p class="phoras"></p>
+                    <p class="doDia">Do dia</p>
+                    <p class="saoData"></p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <script>
         function atualizarHorario() {
-            var phoras = document.getElementById('phoras');
-            var foto = document.getElementById('foto');
-            var sao = document.getElementById('saohoras');
-            var back = document.body;
 
-            var agora = new Date();
-            var hora = agora.getHours();
-            var minutes = agora.getMinutes();
-            var seg = agora.getSeconds();
+            let phoras = document.querySelector('.phoras');
+            let sao = document.querySelector('.saohoras');
+            let saodata = document.querySelector('.saoData')
+            let bodyElement = document.body;
 
-            phoras.innerText = `Agora são ${hora}:${minutes}:${seg}`;
+            let agora = new Date();
+            let dia = agora.getDay()
+            let mes = agora.getMonth()
+            let ano = agora.getFullYear()
+            //let hora = agora.getHours();
+            let hora = 19;
+            let minutes = agora.getMinutes();
+            let seg = agora.getSeconds();
+
+            if (seg.toString().length == 1) {
+                seg = `0${seg}`
+            }
+            if (hora.toString().length == 1) {
+                hora = `0${hora}`
+            }
+            phoras.innerText = `${hora}h${minutes}:${seg}`;
+
+            if (dia.toString().length == 1) {
+                dia = `0${dia}`
+            }
+            saodata.innerText = `${dia}/${mes}/${ano}`
 
             if (hora < 6) {
-                sao.innerText = 'Está de madrugada';
-                foto.setAttribute("src", 'noite-na-floresta_1308-69877.avif');
-                back.style.background = '#061034';
+                sao.innerText = 'Está de madrugada !';
+                sao.style.color = '#947e00'
+                bodyElement.style.color = '#caac04'
+                bodyElement.style.backgroundImage = 'url("imagemMadrugada.jpg")'
+
             } else if (hora < 12) {
-                sao.innerText = 'Está de manhã';
-                foto.setAttribute("src", 'thinkstockphotos-466262074.webp');
-                back.style.background = '#F2C378';
+                sao.innerText = 'Está de manhã !';
+                sao.style.color = '#8d8c8c'
+                bodyElement.style.color = '#c2c2c2'
+                bodyElement.style.backgroundImage = 'url("imagemManha.jpg")'
+
             } else if (hora <= 18) {
-                sao.innerText = 'Está de tarde';
-                foto.setAttribute("src", 'malu_pires-2023-03-09T125512.852-1200x600.jpg');
-                back.style.background = '#FF9600';
+                sao.innerText = 'Está de tarde !';
+                sao.style.color = '#DE702E'
+                bodyElement.style.color = '#ff8438'
+                bodyElement.style.backgroundImage = 'url("imagemTarde.jpg")'
+
             } else {
-                sao.innerText = 'Está de noite';
-                foto.setAttribute("src", 'noite-na-floresta_1308-69877.avif');
-                back.style.background = '#061034';
+                sao.innerText = 'Está de noite !';
+                sao.style.color = '#485040'
+                bodyElement.style.color = '#8ea86e'
+                bodyElement.style.backgroundImage = 'url("imagemNoite3.jpg")'
             }
         }
-
         setInterval(atualizarHorario, 1000);
-
         atualizarHorario();
     </script>
 </body>
+
 </html>
