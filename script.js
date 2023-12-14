@@ -51,7 +51,7 @@ function atualizarHorario() {
         sao.innerText = 'Está de noite !';
         sao.style.color = '#485040'
         bodyElement.style.color = '#8ea86e'
-        bodyElement.style.backgroundImage = 'url("images/imagemNoite3.jpg")'
+        bodyElement.style.backgroundImage = 'url("images/imagemNoite.jpg")'
     }
 }
 setInterval(atualizarHorario, 1000);
